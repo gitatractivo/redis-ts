@@ -13,7 +13,7 @@ const server: net.Server = net.createServer((connection: net.Socket) => {
     const dataString = data.toString()
     console.log(dataString)
     const command = dataString.split(" ")[0].trim();
-    console.log(command, Commands.PING, Commands.PING===command);
+    console.log(command, Commands.PING, "PING"===command);
     switch(command){
       case "PING":
         console.log("inside:PING")
