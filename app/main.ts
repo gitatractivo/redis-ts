@@ -10,7 +10,7 @@ console.log("Logs from your program will appear here!");
 // Uncomment this block to pass the first stage
 const server: net.Server = net.createServer((connection: net.Socket) => {
   connection.on("data", (data) => {
-    const dataString = data.toString().trim();
+    const dataString = data.toString()
     console.log(dataString.split(" "))
     console.log(data,dataString)
     const command = dataString.split(" ")[0].trim();
