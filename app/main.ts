@@ -11,6 +11,7 @@ console.log("Logs from your program will appear here!");
 const server: net.Server = net.createServer((connection: net.Socket) => {
   connection.on("data", (data) => {
     const dataString = data.toString().trim();
+    console.log(dataString.split(" "))
     console.log(data,dataString)
     const command = dataString.split(" ")[0].trim();
     console.log("="+command+"=")
