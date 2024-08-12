@@ -10,27 +10,20 @@ console.log("Logs from your program will appear here!");
 // Uncomment this block to pass the first stage
 const server: net.Server = net.createServer((connection: net.Socket) => {
   connection.on("data", (data) => {
-    const dataString = data.toString()
+    const dataString = data.toString().split("\n")[2]
     console.log(dataString.split(" "))
-    console.log(data,dataString)
+    
     const command = dataString.split(" ")[0].trim();
-    console.log("="+command+"=")
-    console.log(
-      command,
-      Commands.PING,
-      "PING",
-      "PING" === command,
-      "PING" == command
-    );
-    switch(command){
-      case "PING":
-        console.log("inside:PING")
-        connection.write("+PONG\r\n")
+   
+    switch (command) {
+      case Commands.PING:
+        console.log("inside:PING");
+        connection.write("+PONG\r\n");
         break;
       default:
         console.log("inside:default");
 
-        connection.write("-ERR unknown command '" + command + "'\r\n")
+        connection.write("-ERR unknown command '" + command + "'\r\n");
     }
   });
 
