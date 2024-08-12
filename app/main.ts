@@ -10,7 +10,9 @@ console.log("Logs from your program will appear here!");
 // Uncomment this block to pass the first stage
 const server: net.Server = net.createServer((connection: net.Socket) => {
   connection.on("data", (data) => {
-    const command = data.toString().split(" ")[1].trim()
+    const dataString = data.toString()
+    console.log(dataString)
+    const command = dataString.split(" ")[1].trim();
     switch(command){
       case Commands.PING:
         connection.write("+PONG\r\n")
