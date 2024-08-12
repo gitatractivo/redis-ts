@@ -13,6 +13,7 @@ const server: net.Server = net.createServer((connection: net.Socket) => {
     const dataString = data.toString()
     console.log(dataString)
     const command = dataString.split(" ")[0].trim();
+    console.log(command)
     switch(command){
       case Commands.PING:
         connection.write("+PONG\r\n")
