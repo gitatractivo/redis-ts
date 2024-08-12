@@ -16,6 +16,7 @@ const server: net.Server = net.createServer((connection: net.Socket) => {
     console.log(command)
     switch(command){
       case Commands.PING:
+        console.log("inside:PING")
         connection.write("+PONG\r\n")
         break;
       default:
