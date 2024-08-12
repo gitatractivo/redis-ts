@@ -20,6 +20,8 @@ const server: net.Server = net.createServer((connection: net.Socket) => {
         connection.write("+PONG\r\n")
         break;
       default:
+        console.log("inside:default");
+
         connection.write("-ERR unknown command '" + command + "'\r\n")
     }
   });
